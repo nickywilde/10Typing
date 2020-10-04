@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	 <link rel="stylesheet" type="text/css" href="style.css">
+	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="fond">
+	<img src="Image/stade.png">
+</div>
+<div id="menu">
+	<div class="titre">10 TYPING</div>
+	<button type="button" class="btn btn-secondary" onclick="debuterPartie()">Commencer la partie</button>
+</div>
+
+<button id="reessayer" type="button" onclick="recommencerPartie()">Réesayer</button>
+
+<p id ="signal"></p>
+<p id="temps">00:00:00</p>
+<div id="saisirMot">
+	<p><label for="name" id="MotASaisir"></label></p>
+	<p><input type="text" id="saisie" name="name" onchange="VerifMot(this)" required size="10"></p>
+</div>
+
+<img id="athlete" src="Image/athletedepart.png">
+<!--	<button type="button" onclick="Compteur()">compte</button>
+
+<p id="test"></p>-->
+<script type="text/javascript" src="10Tscript.js"></script>
+</body>
+</html>
