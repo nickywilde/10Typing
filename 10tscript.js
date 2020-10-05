@@ -7,18 +7,19 @@ var chronometre = false;
 var signal = 1;
 var disqualifie = false;
 var points = 0;
+var pos = 617;
 var athlete = document.getElementById("athlete");
+
+
 $("#saisirMot").hide();
 $("#reessayer").hide();
 
 function debuterPartie(){
-	document.getElementById("MotASaisir").value ='';
 	$("#menu").hide();
 	AVosMarques();
 }
 
 function recommencerPartie(){
-	document.getElementById("MotASaisir").value ='';
 	$("#reessayer").hide();
 	points = 0;
 	compteur = 0;
@@ -26,8 +27,9 @@ function recommencerPartie(){
 	disqualifie = false;
 	athlete.src = "Image/athletedepart.png";
   	athlete.style.maxWidth = "90px";
-  	athlete.style.left = "34%";
+  	athlete.style.left = "600px";
   	athlete.style.top = "350px";
+  	pos = 617;
 	document.getElementById("temps").innerHTML = "00:00:00";
 	AVosMarques();
 }
@@ -92,7 +94,7 @@ function AVosMarques() {
   				document.getElementById("signal").innerHTML = "Go !";
   				athlete.src = "Image/athleteneutre.png";
   				athlete.style.maxWidth = "50px";
-  				athlete.style.left = "35%";
+  				athlete.style.left = "617px";
   				athlete.style.top = "300px";
   				setTimeout(function(){
   					$("#signal").hide();
@@ -118,25 +120,25 @@ function ReinitieSaisie(){
 	document.getElementById("saisie").value = '';
 }
 
-var pos = 35;
+
 function courir(){
-  pos = pos + 3;
-  athlete.style.left = pos + "%";
+  pos = pos + 50;
+  athlete.style.left = pos + "px";
 }
 
 function VerifMot() {
-  
-  // la variable MotaSaisir permet de générer un mot au hasard au début de la partie
+    // la variable MotaSaisir permet de générer un mot au hasard au début de la partie
   var MotASaisir = document.getElementById("MotASaisir").innerHTML;
   // la variable Mot Saisi permet de récupérer
   // la valeur de l'ID saisie dont le mot saisi sur le formulaire
   var MotSaisi = document.getElementById("saisie").value;
-
 	if (MotSaisi != ""){
 		if(MotSaisi == MotASaisir){
-			if(points == 2)
+			if(points == 9)
 			{
+				courir();
 				chronometre = false;
+				ReinitieSaisie();
 				document.getElementById("signal").innerHTML = "Terminé !";
 				$("#signal").show();
 				$("#saisirMot").hide();
@@ -145,20 +147,18 @@ function VerifMot() {
 			else {
 				points++;
 				courir();
-				document.getElementById("MotASaisir").value ='';
 				GenereMot();
 				ReinitieSaisie();
 			}
 		}
 		else{
-			document.getElementById("MotASaisir").value ='';
 			GenereMot();
 			ReinitieSaisie();
 		}
 	}
 	else{
-		document.getElementById("MotASaisir").value ='';
 		GenereMot();
+		ReinitieSaisie();
 	}
 
 }
